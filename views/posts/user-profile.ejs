@@ -1,0 +1,74 @@
+<style>
+  footer {
+    display: none;
+  }
+  main {
+    width: 83.33% !important;
+  }
+</style>
+
+<%- layout("layouts/boilerplate.ejs") %>
+
+<div class="user-profile-section">
+  <div class="user-info">
+    <div class="user-info-navs mx-5">
+      <div class="user-info-navs-img">
+        <img
+          src="<%= user.profile_pic %>"
+          alt="UserPFP"
+          class="rounded-circle"
+        />
+      </div>
+
+      <div class="user-info-navs-opts ms-4">
+        <span><a href="#" class="mx-2"><%= user.username %></a></span>
+        <span
+          ><a href="#" class="btn btn-secondary py-0 px-3 mx-2">Follow</a></span
+        >
+        <span
+          ><a href="#" class="btn btn-secondary py-0 px-3 mx-2"
+            >Message</a
+          ></span
+        >
+
+        <div class="user-bio-lg">
+          <p class="mb-0 mt-2 mx-2"><%= user.bio %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-bio-sm ms-4 mt-4">
+      <p class=""><%= user.bio %></p>
+    </div>
+
+    <div class="user-info-counts my-3 mx-5 text-center">
+      <div class="py-2">
+        <span><%= user.posts.length %></span> <br />
+        <span class="post_count">Posts</span>
+      </div>
+      <div class="py-2">
+        <span><%= user.followers.length %></span> <br />
+        <span class="post_count"><a href="#">Followers</a></span>
+      </div>
+      <div class="py-2">
+        <span><%= user.following.length %></span> <br />
+        <span class="post_count"><a href="#">Followings</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-posts col-10 row row-cols-3 mx-auto">
+    <% for (let post of user.posts) { %>
+    <div class="card col user-posts-card rounded-0 m-1">
+      <a href="<%= post.user_id %>/posts/<%= post._id %>">
+        <img
+          src="<%= post.image %>"
+          class="card-img-top rounded-0"
+          alt="UserPosts"
+        />
+        <div class="card-img-overlay rounded-0"></div>
+      </a>
+    </div>
+    <% } %>
+  </div>
+</div>

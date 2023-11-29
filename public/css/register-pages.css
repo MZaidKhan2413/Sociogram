@@ -1,0 +1,14 @@
+.register-section {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form {
+  background-color: #0000007e;
+}
+
+.ask-or a:hover {
+  text-decoration: underline;
+}

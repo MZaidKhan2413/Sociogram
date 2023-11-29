@@ -1,0 +1,23 @@
+<%- layout("layouts/boilerplate.ejs") %>
+
+  <% for (let post of posts) { %>
+  <div class="card all-posts-card col-lg-6 col-md-10 col-sm-12 mx-auto mt-3 pb-2 rounded-0">
+    <p class="card-text mb-0">
+      <i><a href="/user/<%= post.user_id._id %>"><%= post.user_id.username %></a></i>
+    </p>
+    <img
+      src="<%= post.image %>"
+      class="card-img-top rounded-2"
+      alt="Socio-Image"
+    />
+    <div class="card-body">
+      <p class="card-text all-posts-card-caption">
+        <b><a href="#"><%= post.user_id.username %></a></b>&nbsp;&nbsp;<%= post.caption %> 
+      </p>
+    </div>
+  </div>
+  <% } %>
+
+  <div class="no-more-post">
+    <p>All Post Seen</p>
+  </div>

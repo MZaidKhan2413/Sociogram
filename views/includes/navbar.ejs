@@ -1,0 +1,35 @@
+<nav class="sidebar-nav">
+  <!-- <i class="fa-brands fa-stripe-s"></i> -->
+  <div class="logo offset-1"><a href="#">Sociogram</a></div>
+
+  <div class="nav-opts offset-1 mb-4">
+    <ul>
+      <% if(currentUser) { %>
+        <li><a href="/posts"><i class="fa-solid fa-house me-3"></i><span>Home</span></a></li>
+        <li><a href="#"><i class="fa-regular fa-comment-dots me-3"></i><span>Messages</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-magnifying-glass me-3"></i><span>Search</span></a></li>
+        <li id="create"><a href="#"><i class="fa-regular fa-square-plus me-3"></i><span>Create</span></a></li>
+        <li><a href="#"><i class="fa-regular fa-bell me-3"></i><span>Notifications</span></a></li>
+        <li><a href="/user/<%= currentUser._id %>"><i class="fa-solid fa-user me-3"></i><span>Profile</span></a></li>
+      <% } %>
+    </ul>
+  </div>
+  <hr class="mx-3">
+  <div class="dropdown offset-1 mt-4">
+    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-solid fa-bars me-3"></i> <span>More</span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Switch color</a></li>
+      <li><a class="dropdown-item" href="#">Contact Us</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <% if(!currentUser) { %>
+        <li><a class="dropdown-item" href="/login">Login</a></li>
+        <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
+      <% } %>
+      <% if(currentUser) { %>
+        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+      <% } %>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,65 @@
+.show-selected-post {
+  height: 100%;
+  display: grid;
+}
+.carousel {
+  place-self: center;
+}
+/* ================================================== */
+.carousel-item {
+  background-color: transparent;
+}
+.carousel-item div {
+  display: flex;
+}
+.carousel-item img {
+  height: 80vh;
+  object-fit: contain;
+}
+/* ================================================== */
+.comment-section {
+  height: 80vh;
+}
+.comment-section .card {
+  background-color: transparent;
+  margin-right: 3.5rem !important;
+  width: 100%;
+}
+.comment-section .card-body {
+  display: flex;
+  flex-direction: column;
+}
+/* ================================================== */
+.card-header {
+  color: #f1f1f1 !important;
+}
+/* ================================================== */
+.commenting-user {
+  font-weight: 900;
+}
+.commenting-value {
+  font-weight: 200;
+}
+/* ================================================== */
+.card-footer form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.card-footer textarea {
+  background-color: transparent;
+  border: none;
+  width: 90%;
+  resize: none;
+}
+.card-footer textarea:focus {
+  outline: none;
+  border: none;
+}
+.card-footer button {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+.slide-btn {
+  width: 5% !important;
+}

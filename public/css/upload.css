@@ -1,0 +1,58 @@
+.row {
+    --bs-gutter-x: 0 !important;
+}
+
+.upload-section {
+    display: none;
+}
+
+.upload-section {
+    position: absolute;
+    z-index: 999;
+    height: 100vh;
+}
+
+.upload-elements {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-form {
+    height: 75%;
+    width: 90%;
+    background-color: #30353c;
+}
+
+.upload-form-head {
+    display: flex;
+}
+.upload-form-head .btn:hover {
+    color: #f1f1f1 !important;
+}
+
+.upload-form-body-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.upload-form-body-image #image{
+    display: none;
+}
+.upload-form-body-image img {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+}
+
+.upload-form-body-caption textarea {
+    background-color: transparent;
+    resize: none;
+    border: none !important;
+    outline: none !important;
+    border-left: 2px solid #0d6dfd2b !important;
+    height: 100%;
+    width: 90%;
+}

@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marhey&display=swap");
+
+html {
+  height: 100%;
+}
+body {
+  background-color: #111315;
+  min-height: 100%;
+  overflow: hidden;
+  font-family: "Mukta", sans-serif;
+}
+
+*, a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* ======================================
+                SIDEBAR
+========================================= */
+.logo {
+  padding: 1.5rem 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-family: "Marhey", sans-serif;
+}
+
+.sidebar-nav {
+  height: 100vh;
+  overflow: hidden;
+  font-size: 1.3rem;
+  border-right: 1.5px solid #ffffff17;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+.nav-opts a:hover {
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff50;
+}
+
+.dropdown-menu {
+  background-color: #30353c;
+}
+.dropdown-menu a {
+  color: white;
+}
+
+.nav-opts ul {
+  list-style: none;
+  padding-left: 0;
+}
+.nav-opts li {
+  padding: 0.2rem;
+  margin: 1rem 0;
+}
+
+.fa-bars {
+  font-size: 1.4rem;
+}
+
+/* ======================================
+            POSTS SECTION
+========================================= */
+.all_posts {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 1rem 0;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* CARD */
+.all-posts-card {
+  border: none;
+  border-bottom: 1px solid #ffffff4a;
+  background-color: transparent;
+}
+.all-posts-card img {
+  width: 100%;
+  height: 32rem;
+}
+.card-body {
+  padding: 0.5rem 0 !important;
+}
+.all-posts-card-caption a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* .mainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+
+/* ======================================
+      Right-sidebar (FOOTER) SECTION
+========================================= */
+.right-sidebar-footer {
+  height: 100vh;
+  overflow: hidden;
+  border-left: 1.5px solid #ffffff17;
+}

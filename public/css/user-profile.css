@@ -1,0 +1,67 @@
+.user-profile-section * {
+  color: #fff;
+}
+.user-info {
+  width: 100%;
+}
+.user-info-navs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-info-navs img {
+  width: 9.25rem;
+  height: 9.25rem;
+  object-fit: cover;
+  background-color: #f1f1f1;
+}
+.user-info-navs-opts * {
+  font-size: 1.25rem;
+}
+.user-info-navs-opts .btn {
+  border: none;
+  background-color: #30353c;
+  font-weight: 300;
+}
+.user-info-navs-opts .btn:hover {
+  background-color: #30353c9b;
+}
+.user-info-navs-opts {
+  width: 50%;
+}
+.user-bio-lg p {
+  font-weight: 100;
+  font-size: 1.1rem;
+}
+.user-info-counts {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.237);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.237);
+}
+
+.user-bio-sm {
+  display: none;
+}
+
+/* ======================================================= */
+
+.user-posts-card {
+  border: none;
+  width: 20rem;
+  height: 20rem;
+}
+.user-posts-card a,
+.user-posts-card a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-img-overlay {
+  opacity: 0;
+}
+.card-img-overlay:hover {
+  background-color: #000;
+  opacity: 0.2;
+}

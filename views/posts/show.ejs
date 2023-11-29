@@ -1,0 +1,81 @@
+<style>
+  footer {
+    display: none;
+  }
+  main {
+    width: 83.33% !important;
+  }
+  .ddbtn:focus {
+    border: none;
+  }
+</style>
+
+<%- layout("layouts/boilerplate") %>
+
+<div class="show-selected-post">
+  <div id="carouselExample" class="carousel slide rounded-2 col-11">
+    <div class="carousel-inner col-12">
+      <% for (let i=0; i<user.posts.length; i++) { %>
+        <div class="<%= user.posts[i]._id.equals(id) ? " carousel-item active" :"carousel-item" %>">
+          <div>
+            <img src="<%= user.posts[i].image %>" class="d-block col-6" alt="SelectedPost" />
+            <div class="comment-section col-6">
+              <div class="card border-secondary">
+                <div class="card-header bg-transparent border-secondary py-3">
+                  <span class="me-2 commenting-user"><%= user.username %></span>
+
+                  <div class="dropdown ms-auto me-3">
+                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa-solid fa-ellipsis ms-auto"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/posts/<%= user.posts[i]._id %>/edit">Edit</a></li>
+                      <li><form action="/posts/<%= user.posts[i]._id %>?_method=DELETE" method="post" class="p-0 dropdown-item">
+                        <button class="btn text-danger">Delete</button>
+                      </form></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p class="card-text px-3">
+                    <span class="me-2 commenting-user"><%= user.username %></span>
+                    <span class="commenting-value"><%= user.posts[i].caption %></span>
+                  </p>
+                </div>
+                <div class="card-footer bg-transparent border-secondary">
+                  <form action="">
+                    <textarea
+                      name="comments"
+                      id="comments"
+                      placeholder="Add a comment..."
+                    ></textarea>
+                    <button class="btn text-primary ms-3">Post</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+        
+        <button
+          class="carousel-control-prev slide-btn"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next slide-btn"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+  </div>
+</div>
