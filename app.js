@@ -64,13 +64,12 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
 
-
 app.get("/", (req, res)=>{
     res.send("this is root");
 });
 
-app.use("/", postRouter);
-app.use("/", userRouter);
+app.use("/posts", postRouter);
+app.use("/user", userRouter);
 app.use("/", registerRouter);
 
 // Error Handeler

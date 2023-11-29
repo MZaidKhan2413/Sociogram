@@ -22,13 +22,14 @@ const validatePost = (req, res, next) => {
 
 
 //  Routes
-router.get("/posts",isLoggedIn, async (req, res)=>{
+// home page
+router.get("",isLoggedIn, async (req, res)=>{
     let posts = await Post.find({}).populate("user_id").sort({_id: -1});
     res.render("posts/home.ejs", {posts});
 });
 
-// new
-router.post("/posts/new", upload.single('post[image]'), validatePost, wrapAsync(async (req, res)=>{
+// new post
+router.post("/new", isLoggedIn, upload.single('post[image]'), validatePost, wrapAsync(async (req, res)=>{
     let file = req.file;
     let post = req.body.post;
     if (typeof file === "undefined" || !post) {
@@ -42,19 +43,13 @@ router.post("/posts/new", upload.single('post[image]'), validatePost, wrapAsync(
     res.redirect("/posts");
 }));
 
-// show
-router.get("/user/:uid/posts/:id", wrapAsync( async (req, res)=>{
-    let {uid, id} = req.params;
-    let user = await User.findById(uid).populate({path: "posts", sort: {_id: -1}});
-    res.render("posts/show.ejs", {id, user});
-}));
-
-// edit
-router.get("/posts/:id/edit", wrapAsync( async (req, res)=>{
+// edit post
+router.get("/:id/edit", isLoggedIn, wrapAsync( async (req, res)=>{
     res.send("Edit Page");
 }));
 
-router.delete("/posts/:id", async (req, res)=>{
+// delete post
+router.delete("/:id", isLoggedIn, async (req, res)=>{
     let userId = req.user._id;
     let id = req.params.id;
     await User.findByIdAndUpdate(userId, {$pull: {posts: id}});
