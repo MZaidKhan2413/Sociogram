@@ -1,44 +1,44 @@
-<style>
-  footer {
-    display: none;
-  }
-  main {
-    width: 83.33% !important;
-  }
-</style>
-
 <%- layout("layouts/boilerplate.ejs") %>
 
-<div class="user-profile-section">
+<div class="user-profile-section w-100 row justify-content-center">
   <div class="user-info">
     <div class="user-info-navs mx-5">
-      <div class="user-info-navs-img">
+      <div class="user-info-navs-img me-2">
         <img
           src="<%= user.profile_pic %>"
           alt="UserPFP"
-          class="rounded-circle"
+          class="rounded-circle border border-2 border-secondary"
         />
       </div>
 
       <div class="user-info-navs-opts ms-4">
-        <span><a href="#" class="mx-2"><%= user.username %></a></span>
-        <span
-          ><a href="#" class="btn btn-secondary py-0 px-3 mx-2">Follow</a></span
-        >
-        <span
-          ><a href="#" class="btn btn-secondary py-0 px-3 mx-2"
-            >Message</a
+        <span class="user-info-username mx-2"><%= user.username %></span>
+        <% if (currentUser && currentUser._id.equals(user._id)){ %>
+          <span>
+            <a href="/user/<%= user._id %>/edit" class="btn btn-secondary py-0 px-3 m-2">Edit Profile</a>
+          </span>
+        <% } %>
+        <% if (currentUser && !user._id.equals(currentUser._id)){ %>
+          <span
+          ><a href="#" class="btn btn-secondary py-0 px-3 m-2">Follow</a></span
+          >
+          <span
+          ><a href="#" class="btn btn-secondary py-0 px-3 m-2"
+          >Message</a
           ></span
-        >
+          >
+        <% } %>
 
-        <div class="user-bio-lg">
-          <p class="mb-0 mt-2 mx-2"><%= user.bio %></p>
+        <div class="user-bio user-bio-lg">
+          <h5 class="mx-2 mt-2 text-capitalize">name</h5>
+          <p class="mb-0 mx-2"> <%= user.bio %> </p>
         </div>
       </div>
     </div>
 
-    <div class="user-bio-sm ms-4 mt-4">
-      <p class=""><%= user.bio %></p>
+    <div class="user-bio user-bio-sm mt-4">
+      <h5 class="text-capitalize ms-4">name</h5>
+      <p class="ms-4"><%= user.bio %></p>
     </div>
 
     <div class="user-info-counts my-3 mx-5 text-center">
@@ -57,18 +57,20 @@
     </div>
   </div>
 
-  <div class="user-posts col-10 row row-cols-3 mx-auto">
-    <% for (let post of user.posts) { %>
-    <div class="card col user-posts-card rounded-0 m-1">
-      <a href="/user/<%= post.user_id %>/posts/<%= post._id %>">
-        <img
-          src="<%= post.image %>"
-          class="card-img-top rounded-0"
-          alt="UserPosts"
-        />
-        <div class="card-img-overlay rounded-0"></div>
-      </a>
+  <div class="user-posts col-10">
+    <div class="user-posts-inner row">
+      <% for (let post of user.posts) { %>
+        <div class="card col-4 user-posts-card rounded-0 g-2">
+          <a href="/user/<%= post.user_id %>/posts/<%= post._id %>">
+            <img
+            src="<%= post.image %>"
+            class="card-img-top rounded-0"
+            alt="UserPosts"
+            />
+            <div class="card-img-overlay rounded-0"></div>
+          </a>
+        </div>
+      <% } %>
     </div>
-    <% } %>
   </div>
 </div>

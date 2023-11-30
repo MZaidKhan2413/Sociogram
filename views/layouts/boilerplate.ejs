@@ -22,22 +22,39 @@
     <link rel="stylesheet" href="/css/user-profile.css" />
     <link rel="stylesheet" href="/css/show.css">
     <link rel="stylesheet" href="/css/register-pages.css">
+    <link rel="stylesheet" href="/css/user-edit.css">
   </head>
   <body>
     <div class="row">
-      <header class="col-2"><%- include("../includes/navbar.ejs") %></header>
+      <header class="col-12 col-lg-2 col-md-1">
+        <section class="sidebar-div d-none d-md-block">
+          <%- include("../includes/navbar.ejs") %>
+        </section>
 
-      <main class="col-7">
-        <div class="mainDiv">
+        <section class="navbar-div d-block d-md-none">
+          fjosidhosidfhoidsh
+        </section>
+      </header>
+
+      <main class="col-12 col-md-7">
+        <div class="mainDiv w-100">
           <%- include("../includes/upload-box.ejs") %>
-          <div class="container all_posts">
+          <div class="container all_posts w-100">
             <%- include("../includes/flash.ejs") %>
             <%- body %>
           </div>
         </div>
       </main>
 
-      <footer class="col-3"><%- include("../includes/footer.ejs") %></footer>
+      <footer class="col-12 col-md-3">
+        <section class="foot-sidebar d-none d-md-block">
+          <%- include("../includes/footer.ejs") %>
+        </section>
+
+        <section class="footerDiv d-block d-md-none">
+          ifhsihdifuhsiudh
+        </section>
+      </footer>
     </div>
 
     <script src="/js/upload-img.js"></script>

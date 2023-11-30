@@ -29,7 +29,11 @@
 .user-info-navs-opts {
   width: 50%;
 }
-.user-bio-lg p {
+.user-bio {
+  max-height: 100rem !important;
+  /* overflow: hidden; */
+}
+.user-bio p {
   font-weight: 100;
   font-size: 1.1rem;
 }
@@ -49,8 +53,7 @@
 
 .user-posts-card {
   border: none;
-  width: 20rem;
-  height: 20rem;
+  background-color: transparent;
 }
 .user-posts-card a,
 .user-posts-card a img {
@@ -64,4 +67,58 @@
 .card-img-overlay:hover {
   background-color: #000;
   opacity: 0.2;
+}
+
+/* =========================================================
+                      Media Queries
+============================================================*/
+@media screen and (min-width: 768px) {
+  main {
+    width: 83.33% !important;
+  }
+  footer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .user-info-navs img {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .user-info-navs,
+  .user-info-navs-opts,
+  .user-info-counts,
+  .user-posts {
+    margin: 0 !important;
+  }
+
+  .user-info-username {
+    display: block;
+  }
+
+  .user-info-navs img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .user-bio-lg {
+    display: none;
+  }
+  .user-bio-sm {
+    display: block;
+  }
+}
+@media screen and (max-width: 576px) {
+  .user-info-navs img {
+    width: 5rem;
+    height: 5rem;
+  }
+  .user-info-navs-opts span a {
+    font-size: 1rem;
+    padding: 1rem;
+    margin: 0.5rem 0 !important;
+  }
 }

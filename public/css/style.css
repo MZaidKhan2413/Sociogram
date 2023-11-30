@@ -3,17 +3,22 @@
 
 html {
   height: 100%;
+  scroll-behavior: smooth;
 }
 body {
   background-color: #111315;
   min-height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: "Mukta", sans-serif;
 }
 
 *, a {
   text-decoration: none;
   color: #fff;
+}
+
+textarea {
+  resize: none;
 }
 
 /* ======================================
@@ -98,13 +103,6 @@ body {
   color: inherit;
 }
 
-/* .mainDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-
 /* ======================================
       Right-sidebar (FOOTER) SECTION
 ========================================= */
@@ -112,4 +110,16 @@ body {
   height: 100vh;
   overflow: hidden;
   border-left: 1.5px solid #ffffff17;
+}
+
+
+/* =========================================================
+                      Media Queries
+============================================================*/
+
+@media screen and (max-width: 768px) {
+  .all_posts {
+    height: unset;
+    overflow-y: visible;
+  }
 }

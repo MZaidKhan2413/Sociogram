@@ -1,0 +1,43 @@
+.edit-profile-inner {
+  background-color: #00000068;
+  backdrop-filter: blur(2px);
+}
+.edit-profile-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.edit-profile-form-head {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f15b;
+}
+.edit-profile-form-body {
+  height: 90%;
+}
+.edit-profile-options textarea:focus {
+  border: none !important;
+  outline: none;
+}
+.edit-profile-img {
+  width: 20rem;
+  height: 20rem;
+}
+
+@media screen and (max-width: 992px) {
+  .edit-profile-img {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .edit-profile-img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .edit-profile {
+    height: 100dvh !important;
+  }
+}
