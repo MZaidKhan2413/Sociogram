@@ -2,13 +2,15 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const wrapAsync = require("../utils/WrapAsync.js");
+const { saveRedirectURL } = require("../utils/Middlewares.js");
 const User = require("../models/users.js");
 
 router.get("/signup", (req, res) => {
-  res.render("user/signup.ejs");
+  res.render("signup.ejs");
 });
 router.post(
   "/signup",
+  saveRedirectURL,
   wrapAsync(async (req, res) => {
     let user = req.body.user;
     let { username, email, password } = user;
@@ -22,7 +24,8 @@ router.post(
           return next(err);
         }
         req.flash("success", "Successfully Registered");
-        res.redirect("/posts");
+        let REDIRECT_URL = res.locals.redirectURL || "/posts";
+        res.redirect(REDIRECT_URL);
       });
     } catch (error) {
       req.flash("error", error.message);
@@ -32,7 +35,7 @@ router.post(
 );
 
 router.get("/login", (req, res) => {
-  res.render("user/login.ejs");
+  res.render("login.ejs");
 });
 router.post(
   "/login",

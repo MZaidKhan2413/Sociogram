@@ -65,7 +65,7 @@ app.use(methodOverride('_method'));
 
 
 app.get("/", (req, res)=>{
-    res.send("this is root");
+    res.render("home.ejs");
 });
 
 app.use("/posts", postRouter);

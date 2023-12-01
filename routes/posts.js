@@ -25,7 +25,7 @@ const validatePost = (req, res, next) => {
 // home page
 router.get("",isLoggedIn, async (req, res)=>{
     let posts = await Post.find({}).populate("user_id").sort({_id: -1});
-    res.render("posts/home.ejs", {posts});
+    res.render("posts/index.ejs", {posts});
 });
 
 // new post
@@ -35,8 +35,8 @@ router.post("/new", isLoggedIn, upload.single('post[image]'), validatePost, wrap
     if (typeof file === "undefined" || !post) {
         throw new ExpressError(500, "Bad Request!")
     }
-    let newPost = new Post({image: file.path, caption: post.caption, user_id: req.user._id});
-    let user = await User.findById(req.user._id);
+    let newPost = new Post({image: file.path, caption: post.caption, user_id: res.locals.currentUser._id});
+    let user = await User.findById(res.locals.currentUser._id);
     user.posts.push(newPost);
     await newPost.save();
     await user.save();
@@ -50,7 +50,7 @@ router.get("/:id/edit", isLoggedIn, wrapAsync( async (req, res)=>{
 
 // delete post
 router.delete("/:id", isLoggedIn, async (req, res)=>{
-    let userId = req.user._id;
+    let userId = res.locals.currentUser._id;
     let id = req.params.id;
     await User.findByIdAndUpdate(userId, {$pull: {posts: id}});
     let deletedPost = await Post.findByIdAndDelete(id);

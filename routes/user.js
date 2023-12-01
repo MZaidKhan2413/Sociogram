@@ -45,7 +45,7 @@ router.get("/:uid/posts/:id", wrapAsync( async (req, res)=>{
 // Follow a specific user
 router.post("/follow/:uid", isLoggedIn, wrapAsync( async (req, res)=>{
   let uid = req.params.uid;
-  let currentUser = req.user;
+  let currentUser = res.locals.currentUser;
   let followedUser = await User.findById(uid);
   currentUser.following.push(followedUser);
   followedUser.followers.push(currentUser);
@@ -56,7 +56,7 @@ router.post("/follow/:uid", isLoggedIn, wrapAsync( async (req, res)=>{
 // Unfollow a specific user
 router.put("/follow/:uid", isLoggedIn, wrapAsync( async (req, res)=>{
   let uid = req.params.uid;
-  let currentUser = req.user;
+  let currentUser = res.locals.currentUser;
   await User.findByIdAndUpdate(uid, {$pull: {followers: currentUser._id}});
   await User.findByIdAndUpdate(currentUser._id, {$pull: {following: uid}});
   res.redirect(`/user/${uid}`);
