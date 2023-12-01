@@ -8,7 +8,6 @@ html {
 body {
   background-color: #111315;
   min-height: 100%;
-  /* overflow: hidden; */
   font-family: "Mukta", sans-serif;
 }
 
@@ -60,7 +59,7 @@ textarea {
   padding-left: 0;
 }
 .nav-opts li {
-  padding: 0.2rem;
+  padding: 0.2rem 0;
   margin: 1rem 0;
 }
 
@@ -88,12 +87,10 @@ textarea {
 /* CARD */
 .all-posts-card {
   border: none;
-  border-bottom: 1px solid #ffffff4a;
-  background-color: transparent;
 }
-.all-posts-card img {
+.post-image {
   width: 100%;
-  height: 32rem;
+  height: 70vh;
 }
 .card-body {
   padding: 0.5rem 0 !important;

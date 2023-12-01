@@ -26,7 +26,7 @@
   </head>
   <body>
     <div class="row">
-      <header class="col-12 col-lg-2 col-md-1">
+      <header class="col-12 col-xl-2 col-md-1">
         <section class="sidebar-div d-none d-md-block">
           <%- include("../includes/navbar.ejs") %>
         </section>
@@ -36,9 +36,9 @@
         </section>
       </header>
 
-      <main class="col-12 col-md-7">
-        <div class="mainDiv w-100">
-          <%- include("../includes/upload-box.ejs") %>
+      <main class="col-12 col-xl-7 col-md-9 position-relative">
+        <%- include("../includes/upload-box.ejs") %>
+        <div class="mainDiv w-100 h-100">
           <div class="container all_posts w-100">
             <%- include("../includes/flash.ejs") %>
             <%- body %>
@@ -46,7 +46,7 @@
         </div>
       </main>
 
-      <footer class="col-12 col-md-3">
+      <footer class="col-12 col-xl-3 col-md-2">
         <section class="foot-sidebar d-none d-md-block">
           <%- include("../includes/footer.ejs") %>
         </section>

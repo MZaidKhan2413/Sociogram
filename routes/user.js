@@ -26,7 +26,7 @@ router.put("/:uid", upload.single("profile_pic"), wrapAsync( async (req, res)=>{
   let updatedUser = await User.findByIdAndUpdate(uid, {bio});
   if (typeof req.file !== "undefined") {
     let profile_pic = req.file.path;
-    updatedUser.profile_pic = {profile_pic};
+    updatedUser.profile_pic = profile_pic;
     await updatedUser.save();
   }
   req.flash('success', "Profile updated successfully");

@@ -1,5 +1,5 @@
-<div class="upload-section col-7" id="upload-box">
-    <div class="upload-elements" >
+<div class="upload-section w-100" id="upload-box">
+    <!-- <div class="upload-elements">
         <div class="upload-form rounded-3">
             <form action="/posts/new" method="POST" enctype="multipart/form-data" class="needs-validation">
                 <div class="upload-form-head">
@@ -40,5 +40,43 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
+    <div
+  class="d-flex align-items-center justify-content-center w-100 h-100"
+>
+  <div class="upload-section-inner col-12 h-100 container rounded-3">
+    
+    <form
+    action="/posts/new"
+    method="POST"
+    enctype="multipart/form-data"
+    class="row upload-section-form-body"
+    >
+
+      <div class="upload-section-form-head">
+        <span class="btn text-danger py-1 fw-bold" id="cancel-btn">Cancel</span>
+        <span class="fw-bold fs-5">Create a new post</span>
+        <button type="submit" class="btn text-primary py-1 fw-bold" id="upload-btn">Upload</button>
+      </div>
+
+      <div class="upload-section-options col-12 col-md-6 align-items-center">
+        <img
+        src="/assets/empty-image.png"
+        alt="newPost"
+        id="source-img"
+        class="bg-white rounded-1 upload-img object-fit-cover border border-2 border-secondary"
+        />
+        <label for="image" class="btn btn-secondary mt-4">Select Image</label>
+        <input type="file" name="post[image]" accept="image/jpg, image/jpeg" class="d-none" id="image">
+      </div>
+
+      <div class="upload-section-options col-12 col-md-6 px-5">
+        <label for="caption" class="form-label mx-3 mt-3 fw-bold fs-5">Add caption</label>
+        <hr class="m-0">
+        <textarea name="post[caption]" id="caption" class="w-100 h-75 p-3 bg-transparent border-0" placeholder="Add a caption.."><%# user.bio %></textarea>
+      </div>
+
+    </form>
+  </div>
+</div>
 </div>

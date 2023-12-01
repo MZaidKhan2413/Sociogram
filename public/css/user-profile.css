@@ -72,14 +72,6 @@
 /* =========================================================
                       Media Queries
 ============================================================*/
-@media screen and (min-width: 768px) {
-  main {
-    width: 83.33% !important;
-  }
-  footer {
-    display: none;
-  }
-}
 
 @media screen and (max-width: 992px) {
   .user-info-navs img {
