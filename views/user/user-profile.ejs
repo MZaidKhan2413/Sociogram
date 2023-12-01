@@ -30,9 +30,19 @@
           </span>
         <% } %>
         <% if (currentUser && !user._id.equals(currentUser._id)){ %>
-          <span
-          ><a href="#" class="btn btn-secondary py-0 px-3 m-2">Follow</a></span
-          >
+          <% if(!currentUser.following.includes(user._id)){ %>
+            <form action="/user/follow/<%= user._id %>" method="POST" class="d-inline">
+              <button class="btn btn-secondary py-0 px-3 m-2">Follow</button>
+            </form>
+          <% } %>
+          <% if(currentUser.following.includes(user._id)){ %>
+            <form action="/user/follow/<%= user._id %>?_method=PUT" method="POST" class="d-inline">
+              <button class="btn btn-secondary py-0 px-3 m-2">Unfollow</button>
+            </form>
+          <% } %>
+          <!-- <span
+          ><a href="#" >Follow</a></span
+          > -->
           <span
           ><a href="#" class="btn btn-secondary py-0 px-3 m-2"
           >Message</a

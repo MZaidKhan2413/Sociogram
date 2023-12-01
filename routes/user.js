@@ -11,7 +11,7 @@ const {isLoggedIn} = require("../utils/Middlewares.js");
 router.get("/:uid", wrapAsync( async (req, res) => {
   let uid = req.params.uid;
   let user = await User.findById(uid).populate({path: "posts", options: {sort: {_id: -1}}});
-  res.render("posts/user-profile.ejs", { user });
+  res.render("user/user-profile.ejs", { user });
 }));
 
 // edit user profile
@@ -38,6 +38,28 @@ router.get("/:uid/posts/:id", wrapAsync( async (req, res)=>{
   let {uid, id} = req.params;
   let user = await User.findById(uid).populate({path: "posts", options: {sort: {_id: -1}}});
   res.render("posts/show.ejs", {id, user});
+}));
+
+
+// Follow apis
+// Follow a specific user
+router.post("/follow/:uid", isLoggedIn, wrapAsync( async (req, res)=>{
+  let uid = req.params.uid;
+  let currentUser = req.user;
+  let followedUser = await User.findById(uid);
+  currentUser.following.push(followedUser);
+  followedUser.followers.push(currentUser);
+  await currentUser.save();
+  await followedUser.save();
+  res.redirect(`/user/${uid}`);
+}));
+// Unfollow a specific user
+router.put("/follow/:uid", isLoggedIn, wrapAsync( async (req, res)=>{
+  let uid = req.params.uid;
+  let currentUser = req.user;
+  await User.findByIdAndUpdate(uid, {$pull: {followers: currentUser._id}});
+  await User.findByIdAndUpdate(currentUser._id, {$pull: {following: uid}});
+  res.redirect(`/user/${uid}`);
 }));
 
 module.exports = router;
