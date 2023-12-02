@@ -1,0 +1,28 @@
+<%- layout("layouts/boilerplate.ejs") %>
+
+<div class="row">
+  <header class="col-12 col-xl-2 col-md-1">
+    <section class="sidebar-div d-none d-md-block">
+      <%- include("../includes/navbar.ejs") %>
+    </section>
+
+    <section class="navbar-div d-block d-md-none">fjosidhosidfhoidsh</section>
+  </header>
+
+  <main class="col-12 col-xl-8 col-md-9 position-relative">
+    <%- include("../includes/upload-box.ejs") %>
+    <div class="mainDiv w-100 h-100">
+      <div class="container all_posts w-100">
+        <%- include("../includes/flash.ejs") %> <%- body %>
+      </div>
+    </div>
+  </main>
+
+  <footer class="col-12 col-xl-2 col-md-2">
+    <section class="foot-sidebar d-none d-md-block">
+      <%- include("../includes/footer.ejs") %>
+    </section>
+
+    <section class="footerDiv d-block d-md-none">ifhsihdifuhsiudh</section>
+  </footer>
+</div>

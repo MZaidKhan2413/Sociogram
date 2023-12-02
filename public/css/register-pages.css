@@ -6,7 +6,7 @@
 }
 
 .register-form {
-  background-color: #0000007e;
+  background-color: var(--register-form-bg);
 }
 
 .ask-or a:hover {

@@ -1,23 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Marhey&display=swap");
 
+:root {
+  --primary-color: #111315;
+  --secondary-color: #30353c;
+  --font-color: #f7f7fa;
+  --edit-bg-color: #00000068;
+  --upload-bg-color: #000000e2;
+  --register-form-bg: #0000007e;
+}
+
 html {
   height: 100%;
   scroll-behavior: smooth;
 }
 body {
-  background-color: #111315;
+  background-color: var(--primary-color);
   min-height: 100%;
   font-family: "Mukta", sans-serif;
 }
 
 *, a {
   text-decoration: none;
-  color: #fff;
+  color: var(--font-color);
 }
 
 textarea {
   resize: none;
+}
+/* Out of Body layout */
+.background-box {
+  height: 100dvh;
+  background-image: url("/assets/register-page-bg.svg");
+  background-size: cover;
 }
 
 /* ======================================
@@ -38,7 +53,6 @@ textarea {
 
 .sidebar-nav a {
   text-decoration: none;
-  color: #fff;
   transition: all 0.2s ease;
 }
 .nav-opts a:hover {
@@ -48,10 +62,10 @@ textarea {
 }
 
 .dropdown-menu {
-  background-color: #30353c;
+  background-color: var(--secondary-color);
 }
 .dropdown-menu a {
-  color: white;
+  color: var(--font-color);
 }
 
 .nav-opts ul {
@@ -108,6 +122,13 @@ textarea {
   overflow: hidden;
   border-left: 1.5px solid #ffffff17;
 }
+
+/* ======================================
+              Home Page
+========================================= */
+
+
+
 
 
 /* =========================================================

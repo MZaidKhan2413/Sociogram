@@ -1,52 +1,57 @@
-<style>
-  header,
-  footer {
-    display: none;
-  }
-  main {
-    width: 100% !important;
-    background-image: url("/assets/register-page-bg.svg");
-    background-size: cover;
-  }
-</style>
-
 <%- layout("layouts/boilerplate.ejs") %>
+<div class="background-box">
+  <div
+    class="edit-box d-flex align-items-center justify-content-center w-100 h-100"
+  >
+    <div class="edit-inner col-12 col-md-9 h-100 container rounded-3">
+      <form
+        action="/user/<%= user._id %>?_method=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+        class="row edit-form-body"
+      >
+        <div class="edit-form-head">
+          <span class=""
+            ><a href="/user/<%= user._id %>" class="btn btn-danger py-1"
+              >Cancel</a
+            ></span
+          >
+          <span class="fw-bold fs-5">Edit profile</span>
+          <button type="submit" class="btn btn-primary py-1">
+            Save changes
+          </button>
+        </div>
 
-<div
-  class="edit-profile d-flex align-items-center justify-content-center w-100 h-100"
->
-  <div class="edit-profile-inner col-12 col-md-9 h-100 container rounded-3">
-    
-    <form
-    action="/user/<%= user._id %>?_method=PUT"
-    method="POST"
-    enctype="multipart/form-data"
-    class="row edit-profile-form-body"
-    >
+        <div class="edit-options col-12 col-md-6 align-items-center">
+          <img
+            src="<%= user.profile_pic %>"
+            alt="profilePFP"
+            id="source-edit-img"
+            class="bg-white rounded-circle edit-img object-fit-cover border border-2 border-secondary"
+          />
+          <label for="edit-image" class="btn btn-secondary mt-4"
+            >New profile picture</label
+          >
+          <input
+            type="file"
+            name="profile_pic"
+            accept="image/jpg, image/jpeg"
+            class="d-none"
+            id="edit-image"
+          />
+        </div>
 
-      <div class="edit-profile-form-head">
-        <span class=""><a href="/user/<%= user._id %>" class="btn btn-danger py-1">Cancel</a></span>
-        <span class="fw-bold fs-5">Edit profile</span>
-        <button type="submit" class="btn btn-primary py-1">Save changes</button>
-      </div>
-
-      <div class="edit-profile-options col-12 col-md-6 align-items-center">
-        <img
-        src="<%= user.profile_pic %>"
-        alt="profilePFP"
-        id="source-edit-img"
-        class="bg-white rounded-circle edit-profile-img object-fit-cover border border-2 border-secondary"
-        />
-        <label for="edit-image" class="btn btn-secondary mt-4">New profile picture</label>
-        <input type="file" name="profile_pic" accept="image/jpg, image/jpeg" class="d-none" id="edit-image">
-      </div>
-
-      <div class="edit-profile-options col-12 col-md-6 px-5">
-        <label for="bio" class="form-label mx-3 fw-bold fs-5">Edit bio</label>
-        <hr class="m-0">
-        <textarea name="bio" id="bio" class="w-100 h-75 p-3 bg-transparent border-0"><%= user.bio %></textarea>
-      </div>
-
-    </form>
+        <div class="edit-options col-12 col-md-6 px-5">
+          <label for="bio" class="form-label mx-3 fw-bold fs-5">Edit bio</label>
+          <hr class="m-0" />
+          <textarea
+            name="bio"
+            id="bio"
+            class="w-100 h-75 p-3 bg-transparent border-0"
+          ><%= user.bio %>
+          </textarea>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

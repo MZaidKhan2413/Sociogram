@@ -1,5 +1,5 @@
 .user-profile-section * {
-  color: #fff;
+  color: var(--font-color);
 }
 .user-info {
   width: 100%;
@@ -20,12 +20,10 @@
 }
 .user-info-navs-opts .btn {
   border: none;
-  background-color: #30353c;
+  background-color: var(--secondary-color);
   font-weight: 300;
 }
-.user-info-navs-opts .btn:hover {
-  background-color: #30353c9b;
-}
+
 .user-info-navs-opts {
   width: 50%;
 }

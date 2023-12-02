@@ -22,7 +22,7 @@ const validatePost = (req, res, next) => {
 
 
 //  Routes
-// home page
+// index page
 router.get("",isLoggedIn, async (req, res)=>{
     let posts = await Post.find({}).populate("user_id").sort({_id: -1});
     res.render("posts/index.ejs", {posts});
@@ -45,8 +45,18 @@ router.post("/new", isLoggedIn, upload.single('post[image]'), validatePost, wrap
 
 // edit post
 router.get("/:id/edit", isLoggedIn, wrapAsync( async (req, res)=>{
-    res.send("Edit Page");
+    let id = req.params.id;
+    let post = await Post.findById(id);
+    res.render("posts/post-edit.ejs", {post});
 }));
+router.put("/:id", wrapAsync( async (req, res)=>{
+    let id = req.params.id;
+    let caption = req.body.caption;
+    let editedPost = await Post.findById(id);
+    editedPost.caption = caption;
+    await editedPost.save();
+    res.redirect(`/user/${res.locals.currentUser._id}`);
+}))
 
 // delete post
 router.delete("/:id", isLoggedIn, async (req, res)=>{

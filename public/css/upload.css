@@ -17,7 +17,7 @@
 }
 
 .upload-section-inner {
-  background-color: #000000e2;
+  background-color: var(--upload-bg-color);
   backdrop-filter: blur(2px);
 }
 

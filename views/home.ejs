@@ -1,28 +1,40 @@
 <style>
-  header,
-  footer {
-    display: none;
-  }
-  main {
-    width: 100% !important;
-    background-image: url("/assets/register-page-bg.svg");
-    background-size: cover;
-  }
-
   .home-page {
-    width: 100%;
+    /* width: 100%; */
     overflow: hidden;
   }
-  .home-page-inner {
-    height: 100dvh;
+  .home-logo-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .home-head p {
+      font-size: .8rem !important;
+    }
   }
 </style>
-<%- layout("./layouts/boilerplate.ejs") %>
+<%- layout("layouts/boilerplate.ejs") %>
 
-<div class="home-page container">
-    <div class="row home-page-inner">
-        <div class="col-6">
-            fdishifh
-        </div>
+<div class="background-box">
+  <div class="row home-page h-100 w-100">
+    <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+      <div class="home-head offset-0 offset-md-3 p-5">
+        <h1 class="fw-bold">Welcome to Sociogram</h1>
+        <p class="m-0">Connect, Share, Thrive: Sociogram - Where Social Circles Flourish!</p>
+        <p class="">Socialize with Sociogram and grow your vibe</p>
+        <a href="/login" class="btn btn-primary px-4 fw-bold me-3">Login</a>
+        <a href="/signup" class="btn btn-primary px-4 fw-bold me-3">Sign up</a>
+      </div>
     </div>
+    <div class="col-12 col-md-6">
+      <div class="home-logo w-100 h-100">
+        <img
+        src="/assets/logo.jpeg  "
+        alt="LOGO"
+        class="home-logo-img"
+        />
+      </div>
+    </div>
+  </div>
 </div>

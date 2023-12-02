@@ -1,0 +1,45 @@
+<%- layout("layouts/boilerplate.ejs") %>
+<div class="background-box">
+  <div
+    class="edit-box d-flex align-items-center justify-content-center w-100 h-100"
+  >
+    <div class="edit-inner col-12 col-md-9 h-100 container rounded-3">
+      <form
+        action="/posts/<%= post._id %>?_method=PUT"
+        method="POST"
+        class="row edit-form-body"
+      >
+        <div class="edit-form-head">
+          <span class=""
+            ><a href="/user/<%= currentUser._id %>" class="btn btn-danger py-1"
+              >Cancel</a
+            ></span
+          >
+          <span class="fw-bold fs-5">Edit post</span>
+          <button type="submit" class="btn btn-primary py-1">
+            Save changes
+          </button>
+        </div>
+
+        <div class="edit-options col-12 col-md-6 align-items-center mb-4 mb-md-0">
+          <img
+            src="<%= post.image %>"
+            alt="postImage"
+            id="source-edit-img"
+            class="edit-img object-fit-cover w-100 h-100"
+          />
+        </div>
+
+        <div class="edit-options col-12 col-md-6 px-0 px-md-5">
+          <label for="caption" class="form-label mx-3 fw-bold fs-5">Edit caption</label>
+          <hr class="m-0" />
+          <textarea
+            name="caption"
+            id="caption"
+            class="w-100 h-75 p-3 bg-transparent border-0"
+          ><%= post.caption %></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
