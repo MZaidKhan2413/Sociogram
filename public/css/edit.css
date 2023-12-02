@@ -17,8 +17,7 @@
 .edit-form-body {
   height: 90%;
 }
-.edit-options textarea:focus {
-  border: none !important;
+.edit-options textarea:focus, .edit-options input:focus {
   outline: none;
 }
 .edit-img {

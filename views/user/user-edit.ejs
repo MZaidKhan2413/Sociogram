@@ -18,7 +18,7 @@
           >
           <span class="fw-bold fs-5">Edit profile</span>
           <button type="submit" class="btn btn-primary py-1">
-            Save changes
+            Save
           </button>
         </div>
 
@@ -41,15 +41,37 @@
           />
         </div>
 
-        <div class="edit-options col-12 col-md-6 px-5">
-          <label for="bio" class="form-label mx-3 fw-bold fs-5">Edit bio</label>
-          <hr class="m-0" />
+        <div
+          class="edit-options col-12 col-md-6 px-5 d-flex flex-column justify-content-center"
+        >
+          <label
+            for="full_name"
+            class="form-label mx-3 fw-bold fs-5 text-primary"
+            >Edit name</label
+          >
+          <input
+            type="text"
+            name="full_name"
+            id="full_name"
+            class="px-3 fs-5 bg-transparent border-0"
+            placeholder="Full Name"
+            value="<%= user.full_name %>"
+          />
+
+          <hr />
+
+          <label
+            for="bio"
+            class="form-label mx-3 fw-bold fs-5 text-primary"
+            >Edit bio</label
+          >
           <textarea
             name="bio"
             id="bio"
-            class="w-100 h-75 p-3 bg-transparent border-0"
-          ><%= user.bio %>
-          </textarea>
+            placeholder="Add a bio..."
+            class=" px-3 bg-transparent border-0 fs-5"
+          ><%= user.bio %></textarea
+          >
         </div>
       </form>
     </div>

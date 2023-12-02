@@ -13,9 +13,10 @@ router.post(
   saveRedirectURL,
   wrapAsync(async (req, res) => {
     let user = req.body.user;
-    let { username, email, password } = user;
+    let { username, email, full_name, password } = user;
+    username = username.toLowerCase();
     try {
-      const newUser = new User({ email, username });
+      const newUser = new User({ full_name, email, username });
       const registerdedUser = await User.register(newUser, password);
       console.log(registerdedUser);
 

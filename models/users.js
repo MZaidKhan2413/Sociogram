@@ -9,9 +9,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    full_name: String,
     profile_pic: {
         type: String,
-        default: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
+        default: "https://static.vecteezy.com/system/resources/thumbnails/005/544/770/small/profile-icon-design-free-vector.jpg",
     },
     bio : {
         type: String,

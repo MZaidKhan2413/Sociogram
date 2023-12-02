@@ -40,14 +40,14 @@
         <% } %>
 
         <div class="user-bio user-bio-lg">
-          <h5 class="mx-2 mt-2 text-capitalize">name</h5>
+          <h5 class="mx-2 mt-2 text-capitalize"><%= user.full_name %></h5>
           <p class="mb-0 mx-2"> <%= user.bio %> </p>
         </div>
       </div>
     </div>
 
     <div class="user-bio user-bio-sm mt-4">
-      <h5 class="text-capitalize ms-4">name</h5>
+      <h5 class="text-capitalize ms-4"><%= user.full_name %></h5>
       <p class="ms-4"><%= user.bio %></p>
     </div>
 

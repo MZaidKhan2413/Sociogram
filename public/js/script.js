@@ -1,5 +1,6 @@
 const upload_box = document.getElementById("upload-box");
 const create = document.getElementById('create');
+const createSM = document.getElementById('create-sm');
 const cancel = document.getElementById('cancel-btn');
 const upload = document.getElementById('upload-btn');
 
@@ -9,11 +10,15 @@ const btnEvents = () =>{
     document.body.style.overflowY = "initial";
 }
 
-create.addEventListener("click", ()=>{
+const showBox = () =>{
     upload_box.style.opacity = "1";
     upload_box.style.display = "block";
     document.body.style.overflowY = "hidden";
-});
+}
+
+create.addEventListener("click", showBox);
+
+createSM.addEventListener("click", showBox)
 
 upload.addEventListener("click", btnEvents)
 

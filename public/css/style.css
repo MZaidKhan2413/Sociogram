@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Marhey&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Marhey:wght@300;400&display=swap');
 
 :root {
   --primary-color: #111315;
@@ -8,6 +8,7 @@
   --edit-bg-color: #00000068;
   --upload-bg-color: #000000e2;
   --register-form-bg: #0000007e;
+  --border-line: #ffffff17;
 }
 
 html {
@@ -48,14 +49,14 @@ textarea {
   height: 100vh;
   overflow: hidden;
   font-size: 1.3rem;
-  border-right: 1.5px solid #ffffff17;
+  border-right: 1.5px solid var(--border-line);
 }
 
-.sidebar-nav a {
-  text-decoration: none;
+.nav-opts li {
   transition: all 0.2s ease;
+  width: fit-content;
 }
-.nav-opts a:hover {
+.nav-opts li:hover, .nav-opts li:active {
   padding: 0.25rem 1rem;
   border-radius: 0.5rem;
   background-color: #ffffff50;
@@ -120,16 +121,15 @@ textarea {
 .right-sidebar-footer {
   height: 100vh;
   overflow: hidden;
-  border-left: 1.5px solid #ffffff17;
+  border-left: 1.5px solid var(--border-line);
 }
 
-/* ======================================
-              Home Page
-========================================= */
 
-
-
-
+/* footer Navbar */
+.footer-nav {
+  border-top: 2px solid var(--border-line);
+  background-color: var(--primary-color);
+}
 
 /* =========================================================
                       Media Queries

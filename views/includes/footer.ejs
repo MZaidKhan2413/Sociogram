@@ -1,3 +1,53 @@
+<style>
+    .followings-profile {
+        overflow-y: auto;
+        height: 70%;
+        border-bottom: 1px solid #ffffff17;
+    }
+    .foot-infos *{
+        font-size: .85rem;
+        color: #f1f1f179;
+    }
+</style>
+
 <div class="right-sidebar-footer">
-    This is footer
+
+  <div class="my-profile py-4 ps-2 ps-lg-4">
+    <div class="my-profile-inner">
+      <a href="/user/<%= user._id %>">
+        <img
+          src="<%= user.profile_pic %>"
+          alt="userPFP"
+          width="40px"
+          height="40px"
+          class="me-2 rounded-circle object-fit-cover"
+        />
+        <span><%= user.username %></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="followings-profile ps-2 ps-lg-4">
+    <h6 class="text-cener pb-2 text-primary">Followings</h6>
+    <% for(let following of user.following){ %>
+        <div class="followings-profile-innner">
+            <a href="/user/<%= following._id %>">
+              <img
+                src="<%= following.profile_pic %>"
+                alt="userPFP"
+                width="40px"
+                height="40px"
+                class="me-2 rounded-circle object-fit-cover"
+              />
+              <span><%= following.username %></span>
+            </a>
+        </div>
+    <% } %>
+  </div>
+
+  <div class="foot-infos pt-3 ps-2 ps-lg-4">
+    <div><a href="#">Privacy</a> &nbsp; &#x2022; &nbsp; <a href="#">Terms</a></div>
+    <p>	&#169; SOCIOGRAM FROM ZAID</p>
+  </div>
+
 </div>

@@ -6,14 +6,16 @@
       <%- include("../includes/navbar.ejs") %>
     </section>
 
-    <section class="navbar-div d-block d-md-none">fjosidhosidfhoidsh</section>
+    <section class="navbar-div d-block d-md-none">
+      <%- include("../includes/header-nav.ejs") %>
+    </section>
   </header>
 
   <main class="col-12 col-xl-8 col-md-9 position-relative">
     <%- include("../includes/upload-box.ejs") %>
     <div class="mainDiv w-100 h-100">
       <div class="container all_posts w-100">
-        <%- include("../includes/flash.ejs") %> <%- body %>
+        <%- body %>
       </div>
     </div>
   </main>
@@ -23,6 +25,8 @@
       <%- include("../includes/footer.ejs") %>
     </section>
 
-    <section class="footerDiv d-block d-md-none">ifhsihdifuhsiudh</section>
+    <section class="footerDiv d-block d-md-none fixed-bottom">
+      <%- include("../includes/footer-nav.ejs") %>
+    </section>
   </footer>
 </div>
