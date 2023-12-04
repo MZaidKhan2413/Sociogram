@@ -16,5 +16,11 @@ const postSchema = new Schema({
     },
 });
 
+// postSchema.post("findOneAndDelete", async(post)=>{
+//     if(post) {
+//         await Post.deleteMany({_id: {$in: post.user_id}});
+//     }
+// });
+
 const Post = mongoose.model("Post", postSchema);
 module.exports = Post;

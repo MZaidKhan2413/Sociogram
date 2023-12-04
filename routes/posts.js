@@ -22,7 +22,7 @@ const validatePost = (req, res, next) => {
 
 //  Routes
 // index page
-router.get("/", isLoggedIn, async (req, res) => {
+router.get("/", isLoggedIn, wrapAsync( async (req, res) => {
   let currentUser = res.locals.currentUser;
   let posts = await Post.find({
     $or: [
@@ -34,7 +34,7 @@ router.get("/", isLoggedIn, async (req, res) => {
     .sort({ _id: -1 });
   let user = await User.findById(currentUser._id).populate("following");
   res.render("posts/index.ejs", { posts, user });
-});
+}));
 
 // new post
 router.post(
@@ -84,13 +84,13 @@ router.put(
 );
 
 // delete post
-router.delete("/:id", isLoggedIn, async (req, res) => {
+router.delete("/:id", isLoggedIn, wrapAsync( async (req, res) => {
   let userId = res.locals.currentUser._id;
   let id = req.params.id;
   await User.findByIdAndUpdate(userId, { $pull: { posts: id } });
   let deletedPost = await Post.findByIdAndDelete(id);
   console.log(deletedPost);
-  res.redirect("/posts");
-});
+  res.redirect(`/user/${userId}`);
+}));
 
 module.exports = router;

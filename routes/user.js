@@ -38,7 +38,7 @@ router.put("/:uid", upload.single("profile_pic"), wrapAsync( async (req, res)=>{
 // show a specific post of user
 router.get("/:uid/posts/:id", wrapAsync( async (req, res)=>{
   let {uid, id} = req.params;
-  let user = await User.findById(uid).populate({path: "posts", options: {sort: {_id: -1}}});
+  let user = await User.findById(uid).populate({path: "posts", options: {sort: {_id: -1}}}).populate("following");
   res.render("posts/show.ejs", {id, user});
 }));
 
@@ -63,10 +63,6 @@ router.put("/follow/:uid", isLoggedIn, wrapAsync( async (req, res)=>{
   await User.findByIdAndUpdate(currentUser._id, {$pull: {following: uid}});
   res.redirect(`/user/${uid}`);
 }));
-
-
-// Search an User
-// router.get("/search", ())
 
 
 module.exports = router;

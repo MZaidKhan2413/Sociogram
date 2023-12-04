@@ -21,21 +21,16 @@
         <% if (currentUser && !user._id.equals(currentUser._id)){ %>
           <% if(!currentUser.following.includes(user._id)){ %>
             <form action="/user/follow/<%= user._id %>" method="POST" class="d-inline">
-              <button class="btn btn-secondary py-0 px-3 m-2">Follow</button>
+              <button class="btn btn-secondary py-0 px-2 px-md-3">Follow</button>
             </form>
           <% } %>
           <% if(currentUser.following.includes(user._id)){ %>
             <form action="/user/follow/<%= user._id %>?_method=PUT" method="POST" class="d-inline">
-              <button class="btn btn-secondary py-0 px-3 m-2">Unfollow</button>
+              <button class="btn btn-secondary py-0 px-2 px-md-3">Unfollow</button>
             </form>
           <% } %>
-          <!-- <span
-          ><a href="#" >Follow</a></span
-          > -->
-          <span
-          ><a href="#" class="btn btn-secondary py-0 px-3 m-2"
-          >Message</a
-          ></span
+         <a href="#" 
+          ><button class="btn btn-secondary py-0 px-2 px-md-3">Message</button></a
           >
         <% } %>
 
@@ -58,7 +53,7 @@
       </div>
       <div class="py-2">
         <span><%= user.followers.length %></span> <br />
-        <span class="post_count"><a href="#">Followers</a></span>
+        <span class="post_count">Followers</span>
       </div>
       <div class="py-2">
         <span><%= user.following.length %></span> <br />
@@ -71,7 +66,7 @@
     <div class="user-posts-inner row">
       <% for (let post of user.posts) { %>
         <div class="card col-4 user-posts-card rounded-0 g-2">
-          <a href="/user/<%= post.user_id %>/posts/<%= post._id %>">
+          <a href="/user/<%= post.user_id %>/posts/<%= post._id %>" class="w-100 h-100">
             <img
             src="<%= post.image %>"
             class="card-img-top rounded-0"

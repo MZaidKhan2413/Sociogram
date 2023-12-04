@@ -1,33 +1,25 @@
 .show-selected-post {
-  height: 100%;
   display: grid;
+  place-content: center;
 }
-.carousel {
-  place-self: center;
+
+.carousel-inner {
+  width: 100%;
+  width: 60vw !important;
 }
 /* ================================================== */
-.carousel-item {
-  background-color: transparent;
-}
-.carousel-item div {
-  display: flex;
-}
 .carousel-item img {
-  height: 80vh;
+  height: 25rem;
+  width: 28rem;
   object-fit: contain;
 }
 /* ================================================== */
 .comment-section {
-  height: 80vh;
+  width: 28rem;
 }
 .comment-section .card {
   background-color: transparent;
-  margin-right: 3.5rem !important;
   width: 100%;
-}
-.comment-section .card-body {
-  display: flex;
-  flex-direction: column;
 }
 /* ================================================== */
 .card-header {
@@ -63,3 +55,8 @@
 .slide-btn {
   width: 5% !important;
 }
+
+/* ========================================================
+                MEDIA QUERIES
+=========================================================== */
+

@@ -1,0 +1,56 @@
+<style>
+  .search-box button {
+    background-color: var(--secondary-color);
+  }
+  .search-box input {
+    border-color: var(--secondary-color);
+    color: var(--font-color) !important;
+  }
+  ::placeholder {
+    color: var(--font-color) !important;
+    opacity: .7 !important;
+  }
+    ::-ms-input-placeholder {
+    color: var(--font-color) !important;
+    opacity: .7 !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .search-box form {
+        width: 100% !important;
+    }
+  }
+</style>
+
+<%- layout("layouts/body.ejs") %>
+
+<section class="search-box">
+  <div class="container-fluid  d-flex justify-content-center">
+    <form class="w-75 d-flex justify-content-center px-3 pb-3 " role="search">
+      <input
+        class="form-control me-2 bg-transparent border-2"
+        type="search"
+        placeholder="Search users"
+        aria-label="Search"
+      />
+      <button class="btn btn-dark rounded-4" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+</section>
+
+<section class="explore-box container">
+    <div class="row">
+        <% for (let post of posts) { %>
+            <div class="card col-3 rounded-0 g-1 bg-transparent">
+              <a href="/user/<%= post.user_id._id %>" class="h-100">
+                <img src="<%= post.image %>" class="card-img-top h-100 object-fit-cover rounded-0 " alt="explorePosts">
+                <div class="card-img-overlay d-flex justify-content-center align-items-end">
+                  <span class="text-danger"><%= post.user_id.username %></span>
+                </div>
+              </a>
+            </div>
+        <% } %>
+    </div>
+</section>

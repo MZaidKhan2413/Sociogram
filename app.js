@@ -19,6 +19,7 @@ const ExpressError = require("./utils/ExpressError.js");
 const postRouter = require("./routes/posts.js");
 const userRouter = require("./routes/user.js");
 const registerRouter = require("./routes/register.js");
+const serachRouter = require("./routes/search.js");
 
 // DB Connection
 const mongoose = require("mongoose");
@@ -70,7 +71,9 @@ app.get("/", (req, res)=>{
 
 app.use("/posts", postRouter);
 app.use("/user", userRouter);
+app.use("/search", serachRouter);
 app.use("/", registerRouter);
+
 
 // Error Handeler
 app.all("*", (req, res, next)=>{

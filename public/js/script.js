@@ -7,13 +7,11 @@ const upload = document.getElementById('upload-btn');
 const btnEvents = () =>{
     upload_box.style.opacity = "0";
     upload_box.style.display = "none";
-    document.body.style.overflowY = "initial";
 }
 
 const showBox = () =>{
     upload_box.style.opacity = "1";
     upload_box.style.display = "block";
-    document.body.style.overflowY = "hidden";
 }
 
 create.addEventListener("click", showBox);

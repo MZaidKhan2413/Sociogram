@@ -1,37 +1,69 @@
-<nav class="sidebar-nav">
+<section class="sidebar-div d-none d-md-block">
+  <nav class="sidebar-nav">
+    <div class="logo offset-0 offset-xl-1 text-center text-xl-start"><a href="/posts"><i class="fa-brands fa-stripe-s d-inline d-xl-none border border-3 border-white p-1"></i><span class="d-none d-xl-inline">Sociogram</span></a></div>
   
-  <div class="logo offset-0 offset-xl-1 text-center text-xl-start"><a href="/posts"><i class="fa-brands fa-stripe-s d-inline d-xl-none border border-3 border-white p-1"></i><span class="d-none d-xl-inline">Sociogram</span></a></div>
+    <div class="nav-opts offset-0 offset-xl-1 mb-4">
+      <ul class="d-flex d-xl-block flex-column align-items-center">
+        <% if(currentUser) { %>
+          <li class="text-center text-xl-start"><a href="/posts"><i class="fa-solid fa-house"></i><span class="ms-3 d-none d-xl-inline">Home</span></a></li>
+          <li class="text-center text-xl-start"><a href="#"><i class="fa-regular fa-comment-dots"></i><span class="ms-3 d-none d-xl-inline">Messages</span></a></li>
+          <li class="text-center text-xl-start"><a href="/search"><i class="fa-solid fa-magnifying-glass"></i><span class="ms-3 d-none d-xl-inline">Search</span></a></li>
+          <li class="text-center text-xl-start" id="create"><i class="fa-regular fa-square-plus"></i><span class="ms-3 d-none d-xl-inline">Create</span></li>
+          <li class="text-center text-xl-start"><i class="fa-regular fa-bell"></i><span class="ms-3 d-none d-xl-inline">Notifications</span></li>
+          <li class="text-center text-xl-start"><a href="/user/<%= currentUser._id %>"><i class="fa-solid fa-user"></i><span class="ms-3 d-none d-xl-inline">Profile</span></a></li>
+        <% } %>
+      </ul>
+    </div>
+  
+    <hr class="mx-0 mx-xl-3">
+  
+    <div class="dropdown offset-0 offset-xl-1 mt-4 text-center text-xl-start">
+      <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+        <i class="fa-solid fa-bars"></i> <span class="ms-3 d-none d-xl-inline">More</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="">Switch color</a></li>
+        <li><a class="dropdown-item" href="#">Contact Us</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <% if(!currentUser) { %>
+          <li><a class="dropdown-item" href="/login">Login</a></li>
+          <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
+        <% } %>
+        <% if(currentUser) { %>
+          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+</section>
 
-  <div class="nav-opts offset-0 offset-xl-1 mb-4">
-    <ul class="d-flex d-xl-block flex-column align-items-center">
-      <% if(currentUser) { %>
-        <li class="text-center text-xl-start"><a href="/posts"><i class="fa-solid fa-house"></i><span class="ms-3 d-none d-xl-inline">Home</span></a></li>
-        <li class="text-center text-xl-start"><a href="#"><i class="fa-regular fa-comment-dots"></i><span class="ms-3 d-none d-xl-inline">Messages</span></a></li>
-        <li class="text-center text-xl-start"><a href="#"><i class="fa-solid fa-magnifying-glass"></i><span class="ms-3 d-none d-xl-inline">Search</span></a></li>
-        <li class="text-center text-xl-start" id="create"><i class="fa-regular fa-square-plus"></i><span class="ms-3 d-none d-xl-inline">Create</span></li>
-        <li class="text-center text-xl-start"><i class="fa-regular fa-bell"></i><span class="ms-3 d-none d-xl-inline">Notifications</span></li>
-        <li class="text-center text-xl-start"><a href="/user/<%= currentUser._id %>"><i class="fa-solid fa-user"></i><span class="ms-3 d-none d-xl-inline">Profile</span></a></li>
-      <% } %>
-    </ul>
+<!-- Samall Screen Header -->
+
+<section class="navbar-div d-block d-md-none">
+
+  <div class="header-nav d-flex align-items-center justify-content-between px-2 py-3 ">
+    <div class="logo p-0 ps-2 fw-lighter fs-4">Sociogram</div>
+    
+    <div class="header-nav-opts px-5 px-sm-3 d-flex justify-content-center w-25">
+      <div class="text-center fs-3 fw-bolder pe-5"><a href="#"><i class="fa-regular fa-comment-dots"></i></a></div>
+      <div class="dropdown text-center fs-3 fw-bolder">
+        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="">Switch color</a></li>
+          <li><a class="dropdown-item" href="#">Contact Us</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <% if(!currentUser) { %>
+            <li><a class="dropdown-item" href="/login">Login</a></li>
+            <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
+          <% } %>
+          <% if(currentUser) { %>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
   </div>
-
-  <hr class="mx-0 mx-xl-3">
-
-  <div class="dropdown offset-0 offset-xl-1 mt-4 text-center text-xl-start">
-    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-      <i class="fa-solid fa-bars"></i> <span class="ms-3 d-none d-xl-inline">More</span>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="">Switch color</a></li>
-      <li><a class="dropdown-item" href="#">Contact Us</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <% if(!currentUser) { %>
-        <li><a class="dropdown-item" href="/login">Login</a></li>
-        <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
-      <% } %>
-      <% if(currentUser) { %>
-        <li><a class="dropdown-item" href="/logout">Logout</a></li>
-      <% } %>
-    </ul>
-  </div>
-</nav>
+  
+</section>

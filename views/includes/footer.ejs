@@ -1,15 +1,6 @@
-<style>
-    .followings-profile {
-        overflow-y: auto;
-        height: 70%;
-        border-bottom: 1px solid #ffffff17;
-    }
-    .foot-infos *{
-        font-size: .85rem;
-        color: #f1f1f179;
-    }
-</style>
 
+<section class="foot-sidebar d-none d-md-block">
+  
 <div class="right-sidebar-footer">
 
   <div class="my-profile py-4 ps-2 ps-lg-4">
@@ -30,7 +21,7 @@
   <div class="followings-profile ps-2 ps-lg-4">
     <h6 class="text-cener pb-2 text-primary">Followings</h6>
     <% for(let following of user.following){ %>
-        <div class="followings-profile-innner">
+        <div class="followings-profile-innner mb-3">
             <a href="/user/<%= following._id %>">
               <img
                 src="<%= following.profile_pic %>"
@@ -47,7 +38,38 @@
 
   <div class="foot-infos pt-3 ps-2 ps-lg-4">
     <div><a href="#">Privacy</a> &nbsp; &#x2022; &nbsp; <a href="#">Terms</a></div>
-    <p>	&#169; SOCIOGRAM FROM ZAID</p>
+    <p>	&#169; SOCIOGRAM BY ZAID</p>
   </div>
 
 </div>
+</section>
+
+<section class="footerDiv d-block d-md-none fixed-bottom">
+
+  <% if (currentUser){ %>
+    <nav
+    class="footer-nav py-2 d-flex align-items-center justify-content-around"
+    >
+    <div class="text-center fs-3 fw-bolder">
+      <a href="/posts"><i class="fa-solid fa-house"></i></a>
+    </div>
+    
+    <div class="text-center fs-3 fw-bolder">
+      <a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a>
+    </div>
+    
+    <div class="text-center fs-3 fw-bolder" id="create-sm">
+      <i class="fa-regular fa-square-plus"></i>
+    </div>
+  
+    <div class="text-center fs-3 fw-bolder">
+      <i class="fa-regular fa-bell"></i>
+    </div>
+    
+    <div class="text-center fs-3 fw-bolder">
+      <a href="/user/<%= currentUser._id %>"><i class="fa-solid fa-user"></i></a>
+    </div>
+  </nav>
+  <% } %>
+
+</section>

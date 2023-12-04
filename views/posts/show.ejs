@@ -1,24 +1,18 @@
-<style>
-  main {
-    width: 83.33% !important;
-  }
-</style>
-
 <%- layout("layouts/body.ejs") %>
 
-<div class="show-selected-post">
-  <div id="carouselExample" class="carousel slide rounded-2 col-11">
-    <div class="carousel-inner col-12">
+<div class="show-selected-post h-100 w-100">
+  <div id="carouselExample" class="carousel slide rounded-2">
+    <div class="carousel-inner">
       <% for (let i=0; i<user.posts.length; i++) { %>
-        <div class="<%= user.posts[i]._id.equals(id) ? " carousel-item active" :"carousel-item" %>">
-          <div>
-            <img src="<%= user.posts[i].image %>" class="d-block col-6" alt="SelectedPost" />
-            <div class="comment-section col-6">
+        <div class="w-100 <%= user.posts[i]._id.equals(id) ? " carousel-item active" :"carousel-item" %>">
+          <div class="d-flex flex-column align-items-center">
+            <img src="<%= user.posts[i].image %>" class="" alt="SelectedPost" />
+            <div class="comment-section">
               <div class="card border-secondary">
-                <div class="card-header bg-transparent border-secondary py-3">
-                  <span class="me-2 commenting-user"><%= user.username %></span>
+                <div class="card-header bg-transparent border-secondary py-3 d-flex justify-content-between">
+                  <span class="commenting-user"><%= user.username %></span>
 
-                  <div class="dropdown ms-auto me-3">
+                  <div class="dropdown">
                     <span role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <i class="fa-solid fa-ellipsis ms-auto"></i>
                     </span>

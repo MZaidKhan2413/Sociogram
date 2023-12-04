@@ -54,3 +54,10 @@
     height: 20rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .upload-section {
+    position: fixed;
+    top: 0%
+  }
+}
