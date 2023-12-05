@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap");
 
 :root {
   --primary-color: #111315;
@@ -21,7 +21,8 @@ body {
   font-family: "Mukta", sans-serif;
 }
 
-*, a {
+*,
+a {
   text-decoration: none;
   color: var(--font-color);
 }
@@ -42,7 +43,7 @@ textarea {
 .logo {
   padding: 1.5rem 0 0.5rem 0;
   font-size: 2rem;
-  font-family: 'Grand Hotel', cursive;
+  font-family: "Grand Hotel", cursive;
 }
 
 .sidebar-nav {
@@ -56,7 +57,8 @@ textarea {
   transition: all 0.2s ease;
   width: fit-content;
 }
-.nav-opts li:hover, .nav-opts li:active {
+.nav-opts li:hover,
+.nav-opts li:active {
   padding: 0.25rem 1rem;
   border-radius: 0.5rem;
   background-color: #ffffff50;
@@ -128,8 +130,8 @@ textarea {
   height: 70%;
   border-bottom: 1px solid var(--border-line);
 }
-.foot-infos *{
-  font-size: .85rem;
+.foot-infos * {
+  font-size: 0.85rem;
   color: #f1f1f179;
 }
 
@@ -156,5 +158,30 @@ textarea {
   .all_posts {
     height: unset;
     overflow-y: visible;
+  }
+}
+
+/* =========================================================
+                  Search Area
+============================================================*/
+.search-box button {
+  background-color: var(--secondary-color);
+}
+.search-box input {
+  border-color: var(--secondary-color);
+  color: var(--font-color) !important;
+}
+.search-box input::placeholder {
+  color: var(--font-color) !important;
+  opacity: 0.7 !important;
+}
+.search-box input::-ms-input-placeholder {
+  color: var(--font-color) !important;
+  opacity: 0.7 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .search-box form {
+    width: 100% !important;
   }
 }

@@ -53,11 +53,31 @@
       </div>
       <div class="py-2">
         <span><%= user.followers.length %></span> <br />
-        <span class="post_count">Followers</span>
+        <span class="post_follow" id="showFollowers">Followers</span>
+        <div class="follow-box py-1 px-5 rounded-2" id="showFollowers-Div">
+          <% for (let fUser of user.followers){ %>
+            <div class="follow-box-item py-1">
+              <a href="/user/<%= fUser._id %>" class="d-block">
+                <img src="<%= fUser.profile_pic %>" alt="pfp">
+                <span><%= fUser.username %></span>
+              </a>
+            </div>
+          <% } %>
+        </div>
       </div>
       <div class="py-2">
         <span><%= user.following.length %></span> <br />
-        <span class="post_count"><a href="#">Followings</a></span>
+        <span class="post_follow" id="showFollowing">Followings</span>
+        <div class="follow-box py-1 px-5 rounded-2" id="showFollowing-Div">
+          <% for (let fUser of user.following){ %>
+            <div class="follow-box-item py-1">
+              <a href="/user/<%= fUser._id %>" class="d-block">
+                <img src="<%= fUser.profile_pic %>" alt="pfp">
+                <span><%= fUser.username %></span>
+              </a>
+            </div>
+          <% } %>
+        </div>
       </div>
     </div>
   </div>

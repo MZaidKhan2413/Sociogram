@@ -1,0 +1,27 @@
+<style>
+    .search-user a {
+        border-bottom: 2px solid var(--border-line);
+    }
+    .found-user img {
+        width: 50px;
+        aspect-ratio: 1/1;
+    }
+    .found-user:hover, .found-user:active {
+        background-color: var(--secondary-color);
+    }
+</style>
+
+<%- layout("layouts/boilerplate.ejs") %>
+<% if (searchedUsers.length <= 0) { %>
+    <div class="w-100 pt-5 fs-2 fw-bolder text-center">No user found</div>
+<% } %>
+<div class="search-user w-100 d-flex flex-column align-items-center justify-content-center py-4">
+    <% for (foundUser of searchedUsers) { %>
+        <a href="/user/<%= foundUser._id %>" class="w-100">
+            <div class="found-user py-3 px-5 rounded-2">
+                <img src="<%= foundUser.profile_pic %>" alt="PFP" class="rounded-circle me-3">
+                <span class="fs-4"><%= foundUser.username %></span>
+            </div>
+        </a>
+    <% } %>
+</div>

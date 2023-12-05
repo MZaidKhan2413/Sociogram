@@ -10,7 +10,7 @@ const {isLoggedIn} = require("../utils/Middlewares.js");
 // Show user profile
 router.get("/:uid", wrapAsync( async (req, res) => {
   let uid = req.params.uid;
-  let user = await User.findById(uid).populate({path: "posts", options: {sort: {_id: -1}}}).populate("following");
+  let user = await User.findById(uid).populate({path: "posts", options: {sort: {_id: -1}}}).populate("following").populate("followers");
   res.render("user/user-profile.ejs", { user });
 }));
 

@@ -1,39 +1,15 @@
-<style>
-  .search-box button {
-    background-color: var(--secondary-color);
-  }
-  .search-box input {
-    border-color: var(--secondary-color);
-    color: var(--font-color) !important;
-  }
-  ::placeholder {
-    color: var(--font-color) !important;
-    opacity: .7 !important;
-  }
-    ::-ms-input-placeholder {
-    color: var(--font-color) !important;
-    opacity: .7 !important;
-  }
-
-  @media screen and (max-width: 768px) {
-    .search-box form {
-        width: 100% !important;
-    }
-  }
-</style>
-
 <%- layout("layouts/body.ejs") %>
 
 <section class="search-box">
   <div class="container-fluid  d-flex justify-content-center">
-    <form class="w-75 d-flex justify-content-center px-3 pb-3 " role="search">
+    <form class="w-75 d-flex justify-content-center px-3 pb-3 " role="search" action="/search/query" method="get">
       <input
         class="form-control me-2 bg-transparent border-2"
         type="search"
         placeholder="Search users"
-        aria-label="Search"
+        name="username"
       />
-      <button class="btn btn-dark rounded-4" type="submit">
+      <button class="btn btn-dark rounded-4" value="search" type="submit">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
     </form>
