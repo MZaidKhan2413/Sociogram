@@ -32,12 +32,18 @@
                     <span class="me-2 commenting-user"><%= user.username %></span>
                     <span class="commenting-value"><%= user.posts[i].caption %></span>
                   </p>
+                  <% for (let comment of user.posts[i].comments){ %>
+                    <p class="card-text px-3">
+                      <a href="/user/<%= comment.author._id %>" class="me-2 commenting-user"><%= comment.author.username %></a>
+                      <span class="commenting-value"><%= comment.comment %></span>
+                    </p>
+                  <% } %>
                 </div>
                 <div class="card-footer bg-transparent border-secondary">
-                  <form action="">
+                  <form action="/posts/<%= user.posts[i]._id %>/comments" method="post">
                     <textarea
-                      name="comments"
-                      id="comments"
+                      name="comment"
+                      id="comment"
                       placeholder="Add a comment..."
                     ></textarea>
                     <button class="btn text-primary ms-3">Post</button>
@@ -47,7 +53,7 @@
             </div>
           </div>
         </div>
-        <% } %>
+      <% } %>
         
         <button
           class="carousel-control-prev slide-btn"

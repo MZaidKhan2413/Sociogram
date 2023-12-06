@@ -5,6 +5,7 @@ const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 const Post = require("../models/posts");
 const User = require("../models/users.js");
+const Comment = require("../models/comments.js");
 const ExpressError = require("../utils/ExpressError.js");
 const wrapAsync = require("../utils/WrapAsync.js");
 const { postSchema } = require("../utils/schemaValidation.js");
@@ -91,6 +92,22 @@ router.delete("/:id", isLoggedIn, wrapAsync( async (req, res) => {
   let deletedPost = await Post.findByIdAndDelete(id);
   console.log(deletedPost);
   res.redirect(`/user/${userId}`);
+}));
+
+// Comments
+router.post("/:id/comments", isLoggedIn, wrapAsync( async (req, res)=>{
+  let id = req.params.id;
+  let post = await Post.findById(id);
+
+  let newComment = new Comment ({
+    comment: req.body.comment,
+    author: res.locals.currentUser._id,
+  });
+  post.comments.push(newComment);
+  await newComment.save();
+  await post.save();
+
+  res.redirect(`/user/${post.user_id}/posts/${id}`);
 }));
 
 module.exports = router;

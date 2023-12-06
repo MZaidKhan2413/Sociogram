@@ -1,0 +1,13 @@
+:root {
+    --primary-color: #fffafa;
+    --secondary-color: #a9deff ;
+    --font-color: #0a0a0a;
+    --edit-bg-color: #ffffff68;
+    --upload-bg-color: #ffffffe2;
+    --register-form-bg: #ffffff7e;
+    --border-line: #00000053;
+  }
+
+hr {
+    border-color: #000 !important;
+}

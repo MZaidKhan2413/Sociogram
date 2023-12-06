@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Comment = require("./comments.js");
 
 const postSchema = new Schema({
     image: {
@@ -14,13 +15,19 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Comment"
+        },
+    ],
 });
 
-// postSchema.post("findOneAndDelete", async(post)=>{
-//     if(post) {
-//         await Post.deleteMany({_id: {$in: post.user_id}});
-//     }
-// });
+postSchema.post("findOneAndDelete", async(post)=>{
+    if(post) {
+        await Comment.deleteMany({_id: {$in: post.comments}});
+    }
+});
 
 const Post = mongoose.model("Post", postSchema);
 module.exports = Post;
