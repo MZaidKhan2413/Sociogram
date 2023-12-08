@@ -1,9 +1,10 @@
 if (process.env.NODE_ENV != "production") {
     require("dotenv").config();
 }
-
+const http = require("http");
 const express = require("express");
 const app = express();
+const server = http.createServer(app);
 const port = 3000;
 
 const methodOverride = require("method-override");
@@ -85,6 +86,6 @@ app.use((err, req, res, next)=>{
     res.status(statusCode).send(message);
 });
 
-app.listen(port, ()=>{
+server.listen(port, ()=>{
     console.log("App Listening at port: "+port);
 });
