@@ -56,7 +56,7 @@ router.get(
       .populate({
         path: "posts",
         options: { sort: { _id: -1 } },
-        populate: { path: "comments", populate: {path: "author"} },
+        populate: { path: "comments", populate: {path: "author"}, options: {sort: {_id: -1} } },
       })
       .populate("following");
     res.render("posts/show.ejs", { id, user });

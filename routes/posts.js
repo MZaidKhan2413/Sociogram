@@ -94,6 +94,20 @@ router.delete("/:id", isLoggedIn, wrapAsync( async (req, res) => {
   res.redirect(`/user/${userId}`);
 }));
 
+// Like
+router.post("/:id/like", isLoggedIn, wrapAsync( async (req, res)=>{
+  let id = req.params.id;
+  let uid = res.locals.currentUser._id;
+  let post = await Post.findById(id);
+  if (post.likes.includes(uid)) {
+    await Post.findByIdAndUpdate(id, { $pull: { likes: uid } });
+  } else {
+    await Post.findByIdAndUpdate(id, { $push: { likes: uid } });
+  }
+
+  res.redirect(`/posts#p-${id}`);
+}))
+
 // Comments
 router.post("/:id/comments", isLoggedIn, wrapAsync( async (req, res)=>{
   let id = req.params.id;
@@ -106,8 +120,8 @@ router.post("/:id/comments", isLoggedIn, wrapAsync( async (req, res)=>{
   post.comments.push(newComment);
   await newComment.save();
   await post.save();
-
-  res.redirect(`/user/${post.user_id}/posts/${id}`);
+  let redirect = `/user/${post.user_id}/posts/${id}`
+  res.redirect(redirect);
 }));
 
 module.exports = router;

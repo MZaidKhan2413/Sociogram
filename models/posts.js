@@ -10,7 +10,12 @@ const postSchema = new Schema({
     caption: {
         type: String,
     },
-    likes: Number,
+    likes: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        },
+    ],
     user_id: {
         type: Schema.Types.ObjectId,
         ref: "User",

@@ -1,7 +1,16 @@
-<%- layout("layouts/body.ejs") %> 
-<% for (let post of posts) { %>
+<style>
+  .fa-heart {
+    color: #ea4335;
+  }
+  .fa-heart:active {
+    font-size: larger;
+  }
+</style>
+
+<%- layout("layouts/body.ejs") %> <% for (let post of posts) { %>
 <div
-  class="card all-posts-card col-12 col-lg-7 col-md-10 mx-auto mt-3 pb-2 rounded-0 bg-black rounded-1"
+  class="card all-posts-card col-12 col-lg-7 col-md-10 mx-auto mt-3 rounded-0 bg-black rounded-1"
+  id="p-<%= post._id %>"
 >
   <p class="card-text my-1 mx-1">
     <span class="me-1">
@@ -32,6 +41,53 @@
         ></b
       >&nbsp;&nbsp;<%= post.caption %>
     </p>
+
+    <div class="like-comment-div pb-2">
+      <% if (post.likes.includes(currentUser._id)) { %>
+      <form
+        action="/posts/<%= post._id %>/like"
+        method="post"
+        class="d-inline me-4"
+      >
+        <button class="btn border-0 p-0 ms-2 me-1 fs-4">
+          <i class="fa-solid fa-heart"></i>
+        </button>
+        <span><%= post.likes.length %></span>
+      </form>
+      <% } %>
+      
+      <% if (!post.likes.includes(currentUser._id)) { %>
+      <form
+        action="/posts/<%= post._id %>/like"
+        method="post"
+        class="d-inline me-4"
+      >
+        <button class="btn border-0 p-0 ms-2 me-1 fs-4">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <span><%= post.likes.length %></span>
+      </form>
+      <% } %>
+
+      <a href="/user/<%= post.user_id._id %>/posts/<%= post._id %>">
+        <button class="btn border-0 p-0 ms-1 me-1 fs-4" id="comment-post">
+          <i class="fa-regular fa-comment fs-4"></i>
+        </button>
+        <span><%= post.comments.length %></span>
+      </a>
+    </div>
+
+    <div class="new-comment-div border-top border-1 pt-2">
+      <form action="/posts/<%= post._id %>/comments" method="post">
+        <textarea
+          name="comment"
+          id="comment"
+          placeholder="Add a comment..."
+          class="p-1 ps-2"
+        ></textarea>
+        <button class="btn text-primary ms-3">Post</button>
+      </form>
+    </div>
   </div>
 </div>
 <% } %>
@@ -39,3 +95,5 @@
 <div class="no-more-post">
   <p>All Post Seen</p>
 </div>
+
+<script src="/js/like-post.js"></script>

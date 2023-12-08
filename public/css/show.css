@@ -33,22 +33,25 @@
   font-weight: 200;
 }
 /* ================================================== */
-.card-footer form {
+.new-comment-div {
+  border-color: var(--border-line) !important;
+}
+.new-comment-div form {
   display: flex;
   align-items: center;
   width: 100%;
 }
-.card-footer textarea {
+.new-comment-div textarea {
   background-color: transparent;
   border: none;
   width: 90%;
   resize: none;
 }
-.card-footer textarea:focus {
+.new-comment-div textarea:focus {
   outline: none;
   border: none;
 }
-.card-footer button {
+.new-comment-div button {
   font-size: 1.2rem;
   font-weight: 900;
 }
