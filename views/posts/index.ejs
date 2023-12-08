@@ -1,15 +1,6 @@
-<style>
-  .fa-heart {
-    color: #ea4335;
-  }
-  .fa-heart:active {
-    font-size: larger;
-  }
-</style>
-
 <%- layout("layouts/body.ejs") %> <% for (let post of posts) { %>
 <div
-  class="card all-posts-card col-12 col-lg-7 col-md-10 mx-auto mt-3 rounded-0 bg-black rounded-1"
+  class="card all-posts-card col-12 col-lg-7 col-md-10 mx-auto mt-3 rounded-0 rounded-1"
   id="p-<%= post._id %>"
 >
   <p class="card-text my-1 mx-1">
@@ -30,7 +21,7 @@
   </p>
   <img
     src="<%= post.image %>"
-    class="card-img-top rounded-1 border border-1 border-dark post-image"
+    class="card-img-top rounded-0 post-image"
     alt="Socio-Image"
   />
   <div class="card-body mx-1">

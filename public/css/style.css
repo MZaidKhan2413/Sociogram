@@ -2,13 +2,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap");
 
 :root {
-  --primary-color: #111315;
+  --primary-color: #121212;
   --secondary-color: #30353c;
   --font-color: #f7f7fa;
   --edit-bg-color: #00000068;
   --upload-bg-color: #000000e2;
   --register-form-bg: #0000007e;
   --border-line: #ffffff17;
+  --post-bg: #000;
+}
+
+.light-theme {
+  --primary-color: #e5e5e5f7;
+  --secondary-color: #b1c6d3 ;
+  --font-color: #0a0a0a;
+  --edit-bg-color: #ffffff68;
+  --upload-bg-color: #ffffffe2;
+  --register-form-bg: #ffffff7e;
+  --border-line: #00000053;
+  --post-bg: #FFF
+}
+
+.light-theme hr {
+  border-color: #000 !important;
 }
 
 html {
@@ -35,6 +51,24 @@ textarea {
   height: 100dvh;
   background-image: url("/assets/register-page-bg.svg");
   background-size: cover;
+}
+
+/* ======================================
+              Home Page
+========================================= */
+.home-page {
+  /* width: 100%; */
+  overflow: hidden;
+}
+.home-logo-img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .home-head p {
+    font-size: 0.8rem !important;
+  }
 }
 
 /* ======================================
@@ -104,6 +138,7 @@ textarea {
 /* CARD */
 .all-posts-card {
   border: none;
+  background-color: var(--post-bg);
 }
 .post-image {
   aspect-ratio: 9.7/10;
@@ -114,6 +149,13 @@ textarea {
 .all-posts-card-caption a {
   text-decoration: none;
   color: inherit;
+}
+
+.fa-heart {
+  color: #ea4c3d;
+}
+.fa-heart:active {
+  font-size: larger;
 }
 
 /* ======================================
