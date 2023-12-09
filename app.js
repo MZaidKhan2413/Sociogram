@@ -11,6 +11,7 @@ const methodOverride = require("method-override");
 const path = require("path");
 const engine = require("ejs-mate");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -24,6 +25,7 @@ const serachRouter = require("./routes/search.js");
 
 // DB Connection
 const mongoose = require("mongoose");
+const MONGO_URL = process.env.ATLAS_URL;
 main()
     .then(()=>{
         console.log("Connection to DB Succeed");
@@ -31,14 +33,29 @@ main()
         console.log(err);
     });
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/sociogram");
+    await mongoose.connect(MONGO_URL);
 };
+
+
+const store = MongoStore.create({
+    mongoUrl: MONGO_URL,
+    crypto: {
+        secret: process.env.SESSION_SECRET,
+    },
+    touchAfter: 24 * 3600,
+})
 
 // Express Session
 const sessionOptions = {
+    store,
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    cookie: {
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        httpOnly: true, 
+    },
 };
 app.use(session(sessionOptions));
 app.use(flash());
