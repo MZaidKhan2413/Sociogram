@@ -3,23 +3,21 @@
   place-content: center;
 }
 
-.carousel-inner {
-  width: 100%;
-  width: 60vw !important;
-}
-/* ================================================== */
-.carousel-item img {
-  height: 25rem;
-  width: 28rem;
-  object-fit: contain;
+.show-post-img {
+  aspect-ratio: 1/1;
 }
 /* ================================================== */
 .comment-section {
-  width: 28rem;
+  max-height: 100%;
 }
 .comment-section .card {
   background-color: transparent;
   width: 100%;
+  height: 100%;
+}
+.comment-section .card-body {
+  height: 25rem !important;
+  overflow: scroll;
 }
 /* ================================================== */
 .card-header {
@@ -32,6 +30,7 @@
 .commenting-value {
   font-weight: 200;
 }
+
 /* ================================================== */
 .new-comment-div {
   border-color: var(--border-line) !important;
@@ -55,11 +54,13 @@
   font-size: 1.2rem;
   font-weight: 900;
 }
-.slide-btn {
-  width: 5% !important;
-}
 
 /* ========================================================
                 MEDIA QUERIES
 =========================================================== */
 
+@media screen and (max-width: 768px) {
+  .show-post-img {
+    width: 100%;
+  }
+}

@@ -4,6 +4,7 @@ const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 const User = require("../models/users.js");
+const Post = require("../models/posts.js");
 const wrapAsync = require("../utils/WrapAsync.js");
 const { isLoggedIn } = require("../utils/Middlewares.js");
 
@@ -47,21 +48,6 @@ router.put(
   })
 );
 
-// show a specific post of user
-router.get(
-  "/:uid/posts/:id",
-  wrapAsync(async (req, res) => {
-    let { uid, id } = req.params;
-    let user = await User.findById(uid)
-      .populate({
-        path: "posts",
-        options: { sort: { _id: -1 } },
-        populate: { path: "comments", populate: {path: "author"}, options: {sort: {_id: -1} } },
-      })
-      .populate("following");
-    res.render("posts/show.ejs", { id, user });
-  })
-);
 
 // Follow apis
 // Follow a specific user

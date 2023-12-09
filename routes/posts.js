@@ -62,6 +62,25 @@ router.post(
   })
 );
 
+// show post
+router.get(
+  "/:id",
+  isLoggedIn,
+  wrapAsync(async (req, res) => {
+    let id = req.params.id;
+    let post = await Post.findById(id)
+      .populate("user_id")
+      .populate({
+        path: "comments",
+        populate: { path: "author" },
+        options: { sort: { _id: -1 } },
+      });
+    let user = await User.findById(res.locals.currentUser)
+      .populate("following");
+    res.render("posts/show.ejs", { user, post });
+  })
+);
+
 // edit post
 router.get(
   "/:id/edit",
@@ -120,7 +139,7 @@ router.post("/:id/comments", isLoggedIn, wrapAsync( async (req, res)=>{
   post.comments.push(newComment);
   await newComment.save();
   await post.save();
-  let redirect = `/user/${post.user_id}/posts/${id}`
+  let redirect = `/posts/${id}`
   res.redirect(redirect);
 }));
 

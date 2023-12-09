@@ -86,7 +86,7 @@
     <div class="user-posts-inner row">
       <% for (let post of user.posts) { %>
         <div class="card col-4 user-posts-card rounded-0 g-2">
-          <a href="/user/<%= post.user_id %>/posts/<%= post._id %>" class="w-100 h-100">
+          <a href="/posts/<%= post._id %>" class="w-100 h-100">
             <img
             src="<%= post.image %>"
             class="card-img-top rounded-0"
