@@ -42,8 +42,8 @@
     </div>
 
     <div class="user-bio user-bio-sm mt-4">
-      <h5 class="text-capitalize ms-4"><%= user.full_name %></h5>
-      <p class="ms-4"><%= user.bio %></p>
+      <h5 class="text-capitalize mx-4"><%= user.full_name %></h5>
+      <p class="mx-4"><%= user.bio %></p>
     </div>
 
     <div class="user-info-counts my-3 mx-5 text-center">
@@ -82,10 +82,10 @@
     </div>
   </div>
 
-  <div class="user-posts col-10">
+  <div class="user-posts col-12 col-md-10 pb-5">
     <div class="user-posts-inner row">
       <% for (let post of user.posts) { %>
-        <div class="card col-4 user-posts-card rounded-0 g-2">
+        <div class="card col-4 user-posts-card rounded-0 g-1">
           <a href="/posts/<%= post._id %>" class="w-100 h-100">
             <img
             src="<%= post.image %>"

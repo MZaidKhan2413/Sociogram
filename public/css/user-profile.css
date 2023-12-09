@@ -124,10 +124,6 @@
   }
 }
 @media screen and (max-width: 576px) {
-  .user-info-navs img {
-    width: 5rem;
-    height: 5rem;
-  }
   .user-info-navs-opts button {
     padding: 1rem;
     margin: 0.5rem 0 !important;

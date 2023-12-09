@@ -143,6 +143,7 @@ textarea {
 }
 .post-image {
   aspect-ratio: 9.7/10;
+  object-fit: cover;
 }
 .card-body {
   padding: 0.5rem 0 !important;
@@ -221,6 +222,10 @@ textarea {
 .search-box input::-ms-input-placeholder {
   color: var(--font-color) !important;
   opacity: 0.7 !important;
+}
+
+.search-img {
+  aspect-ratio: 1/1;
 }
 
 @media screen and (max-width: 768px) {

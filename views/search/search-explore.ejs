@@ -16,12 +16,12 @@
   </div>
 </section>
 
-<section class="explore-box container">
+<section class="explore-box container pb-5">
     <div class="row">
         <% for (let post of posts) { %>
-            <div class="card col-3 rounded-0 g-1 bg-transparent">
+            <div class="card col-4 rounded-0 g-1 bg-transparent">
               <a href="/user/<%= post.user_id._id %>" class="h-100">
-                <img src="<%= post.image %>" class="card-img-top h-100 object-fit-cover rounded-0 " alt="explorePosts">
+                <img src="<%= post.image %>" class="search-img card-img-top h-100 object-fit-cover rounded-0 " alt="explorePosts">
                 <div class="card-img-overlay d-flex justify-content-center align-items-end">
                   <span class="text-danger"><%= post.user_id.username %></span>
                 </div>
