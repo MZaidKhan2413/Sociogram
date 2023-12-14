@@ -7,11 +7,14 @@ module.exports.index = async (req, res) => {
   let currentUser = res.locals.currentUser;
   let posts = await Post.find({
     $or: [
-      { user_id: { $in: [currentUser.following] } },
+      { user_id: { $in: currentUser.following } },
       { user_id: currentUser._id },
     ],
   })
-    .populate("user_id")
+    .populate({
+      path: "user_id",
+      model: "User"
+    })
     .sort({ _id: -1 });
   let user = await User.findById(currentUser._id).populate("following");
   res.render("posts/index.ejs", { posts, user });
