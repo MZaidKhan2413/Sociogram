@@ -5,7 +5,7 @@ const http = require("http");
 const express = require("express");
 const app = express();
 const server = http.createServer(app);
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const methodOverride = require("method-override");
 const path = require("path");
